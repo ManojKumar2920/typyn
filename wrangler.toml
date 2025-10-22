@@ -2,7 +2,7 @@ name = "typyn-docs"
 compatibility_date = "2025-10-23"
 
 # This tells Cloudflare Pages where the built static files are
-pages_build_output_dir = "docs/docs.vitepress/dist"
+pages_build_output_dir = "docs/docs/.vitepress/dist"
 
 # Optional environment variables
 [vars]
