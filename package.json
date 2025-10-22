@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.3",
+  "workspaces": [
+    "lib",
+    "docs",
+    "benchmarks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ManojKumar2920/typyn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ManojKumar2920/typyn/issues"
+  },
+  "scripts": {
+    "build": "pnpm --filter typyn run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint 'lib/src/**/*.{ts,tsx}'",
+    "bench": "pnpm --filter ./benchmarks bench",
+    "docs:dev": "pnpm --filter @typyn/docs run dev",
+    "docs:build": "pnpm --filter @typyn/docs run build"
+  },
+  "devDependencies": {
+    "eslint": "^9.38.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4",
+    "typyn": "workspace:*"
+  }
+}

@@ -1,0 +1,7 @@
+# Ignore everything except files/ whitelisted in package.json
+*
+!dist/
+!LICENSE
+!README.md
+!package.json
+!*.md  # Include other docs if any

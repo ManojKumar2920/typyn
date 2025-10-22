@@ -1,0 +1,50 @@
+{
+  "name": "typyn",
+  "version": "1.1.0",
+  "description": "A lightweight, chainable TypeScript validation library for safe data parsing and schema enforcement.",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm exec tsup src/index.ts --dts --format esm,cjs --clean",
+    "test": "pnpm exec vitest",
+    "lint": "pnpm exec eslint src --ext .ts,.tsx"
+  },
+  "keywords": [
+    "typescript",
+    "validation",
+    "schema",
+    "lightweight",
+    "chainable"
+  ],
+  "author": "ManojKumar2920",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ManojKumar2920/typyn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ManojKumar2920/typyn/issues"
+  },
+  "homepage": "https://github.com/ManojKumar2920/typyn#readme",
+  "packageManager": "pnpm@10.19.0",
+  "devDependencies": {
+    "@types/node": "^24.8.1",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^9.38.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
