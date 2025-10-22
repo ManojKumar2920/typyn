@@ -115,11 +115,3 @@ const config = v.object({
 ✅ **`.default()`** — provides fallback values.
 ✅ **`.transform()`** — modify output post-validation.
 
----
-
-### 🔗 Next Steps
-
-1. [Learn the Primitives →](/primitives/)
-2. [Build Composite Schemas →](/composites/)
-3. [Handle Special Types →](/advanced/)
-4. [See Real Examples →](/examples/)

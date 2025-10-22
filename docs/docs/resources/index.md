@@ -7,7 +7,6 @@ title: Resources Overview
 Everything you need for deeper dives, contributions, or tracking updates.
 
 ## Quick Links
-- [API Reference](/resources/api-reference) – Full schema methods and types.
 - [Contributing](/resources/contributing) – How to build with us.
 - [Changelog](/resources/changelog) – Release notes and history.
 

@@ -19,14 +19,15 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint 'lib/src/**/*.{ts,tsx}'",
-    "bench": "pnpm --filter ./benchmarks bench",
-    "docs:dev": "pnpm --filter @typyn/docs run dev",
-    "docs:build": "pnpm --filter @typyn/docs run build"
+    "docs:build": "pnpm --filter ./docs build",
+    "docs:dev": "pnpm --filter ./docs dev",
+    "docs:preview": "pnpm --filter ./docs preview "
   },
   "devDependencies": {
     "eslint": "^9.38.0",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4",
-    "typyn": "workspace:*"
+    "typyn": "workspace:*",
+    "vitepress": "2.0.0-alpha.12",
+    "vitest": "^3.2.4"
   }
 }
