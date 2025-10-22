@@ -1,11 +1,7 @@
----
-title: Introduction
-description: Typyn — Lightweight, Chainable TypeScript Validation Library
----
 
 <div align="center" style="margin-top: 2rem; margin-bottom: 5rem;">
 
-  <img src="/assets/logo.png" alt="Typyn Logo" width="120" style="margin-bottom: 1rem;" />
+  <img src="https://typyn.pages.dev/assets/logo.Dvp5OnQ7.png" alt="Typyn Logo" width="120" style="margin-bottom: 1rem;" />
 
   <h1><b>Typyn Documentation</b></h1>
 
@@ -35,83 +31,137 @@ description: Typyn — Lightweight, Chainable TypeScript Validation Library
 
 </div>
 
+## 🧩 Overview
 
-# Introduction
+**Typyn** is a high-performance, type-safe validation library for TypeScript.  
+Inspired by tools like **Zod** and **Yup**, Typyn is designed for developers who value **speed**, **safety**, and **clarity**.
 
+Built from scratch for modern runtimes — Node, Deno, Bun, and edge platforms.
 
-Typyn is a minimalist validation library designed for TypeScript developers who need fast, intuitive schema building without the bloat. Drawing inspiration from tools like Zod and Yup, but stripped down for performance (up to 10M+ ops/sec on primitives), Typyn lets you chain rules fluently while ensuring runtime safety and compile-time types.
+### ✨ Key Features
+- ⚡ **Ultra-fast** — up to 100× faster than Zod on primitives  
+- 🧠 **Type-safe** — automatic TypeScript inference  
+- 🔗 **Chainable** — expressive syntax for all schema types  
+- 🧱 **Composable** — build complex object schemas with ease  
+- 🪶 **Lightweight** — ~5KB gzipped, zero dependencies  
+- 🧩 **Extensible** — supports refinements, transforms, and custom errors  
 
-## 🚀 Quick Start
+---
 
-### Installation
+## 🚀 Installation
 
-Install Typyn using your preferred package manager:
+Choose your package manager:
 
 ```bash
 # Using pnpm (recommended)
 pnpm add typyn
 
-# npm
+# or npm
 npm install typyn
 
-# yarn
+# or yarn
 yarn add typyn
 
-# bun
+# or bun
 bun add typyn
-```
+````
 
 ---
 
-### Basic Usage
-
-Create a simple schema with the `v` factory:
+## 🧠 Basic Usage
 
 ```ts
 import { v } from "typyn";
 
-// Define a schema
+// Create a schema
 const userSchema = v.object({
   name: v.string().min(2).max(50),
-  age: v.number().min(18).default(18),
+  age: v.number().min(18),
   email: v.string().email().optional(),
 });
 
-// Validate input (throws on error)
+// Parse input (throws on error)
 const user = userSchema.parse({ name: "Alice", age: 22 });
-console.log(user);
-// → { name: "Alice", age: 22 }
+console.log(user); // ✅ { name: "Alice", age: 22 }
 
-// Safe validation (no throws)
+// Safe validation (non-throwing)
 const result = userSchema.safe({ name: "A", age: 10 });
-if (!result.success) {
-  console.error(result.error.message);
-  // → "name → Must be at least 2 characters"
-}
+if (!result.success) console.error(result.error.message);
+// → "name → Must be at least 2 characters"
 ```
 
 ---
 
-### 🧩 Extra Features
+## 🧰 Core Concepts
 
-Typyn schemas are **chainable**, **type-safe**, and **composable**:
+| Method         | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `.parse()`     | Validates and returns typed data (throws on error)       |
+| `.safe()`      | Returns `{ success, data?, error? }` instead of throwing |
+| `.refine()`    | Adds a custom validation rule                            |
+| `.transform()` | Transforms data after validation                         |
+| `.default()`   | Adds fallback values for missing inputs                  |
 
-```ts
-// Add transforms or defaults
-const emailSchema = v.string().email().trim().transform(e => e.toLowerCase());
+---
 
-// Use refinements for custom logic
-const even = v.number().refine(n => n % 2 === 0, "Must be even");
+## 🧮 Benchmarks
 
-// Combine schemas
-const config = v.object({
-  port: v.number().min(1000).max(9999),
-  secure: v.boolean().default(false),
-});
+> 🧾 Node 22.14.0 • Intel i5-8365U • 10k iterations
+
+| Validation   | Typyn            | Zod | Yup |
+| ------------ | ---------------- | --- | --- |
+| String (min) | **1.1M ops/sec** | 50k | 32k |
+| Number (int) | **980k ops/sec** | 60k | 28k |
+| Enum parse   | **820k ops/sec** | 30k | 19k |
+
+🔬 See full details at [Benchmarks →](https://typyn.pages.dev/benchmarks/results)
+
+---
+
+
+## 🧩 Development
+
+```bash
+# Install all deps
+pnpm install
+
+# Run tests in lib
+pnpm test:watch
+
+# Bechmark tests in lib
+pnpm bench
+
 ```
 
-✅ **`.parse()`** — strict mode (throws on failure).
-✅ **`.safe()`** — safe mode (returns `{ success, data?, error? }`).
-✅ **`.default()`** — provides fallback values.
-✅ **`.transform()`** — modify output post-validation.
+---
 
+## 💬 Community & Contributing
+
+Contributions welcome 💚
+Whether it’s bug fixes, performance tweaks, or schema ideas — open a PR or issue!
+
+* [GitHub Issues](https://github.com/ManojKumar2920/typyn/issues)
+* [Discussions](https://github.com/ManojKumar2920/typyn/discussions)
+* [Pull Requests](https://github.com/ManojKumar2920/typyn/pulls)
+
+To get started:
+
+```bash
+pnpm install
+cd lib
+pnpm dev
+```
+
+---
+
+## ⚖️ License
+
+Licensed under the [MIT License](./LICENSE)
+Copyright © 2025 [Mano Kumar](https://github.com/ManojKumar2920)
+
+---
+
+<p align="center">
+  <b>Typyn v1.1.0</b> — Built for speed. Designed for safety.  
+  <br/>🧠 Made with TypeScript • ⚙️ Powered by PNPM • ☁️ Deployed on Cloudflare
+</p>

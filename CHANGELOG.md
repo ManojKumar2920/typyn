@@ -1,7 +1,3 @@
----
-title: Changelog
----
-
 # Changelog
 
 Track releases and changes. Follow [SemVer](https://semver.org/).
@@ -20,8 +16,6 @@ Track releases and changes. Follow [SemVer](https://semver.org/).
 - Build: tsup dual ESM/CJS.
 
 *Future: v1.2.0 – Lazy schemas, i18n errors.*
-
-[Back to Resources](/resources/)
 
 ---
 
