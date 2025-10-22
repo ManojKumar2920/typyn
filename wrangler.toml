@@ -1,16 +1,10 @@
 name = "typyn-docs"
-main = "docs/.vitepress/dist" # Not used for Pages, but kept for reference
 compatibility_date = "2025-10-23"
 
-# For static site deployments (Cloudflare Pages)
+# This tells Cloudflare Pages where the built static files are
 pages_build_output_dir = "docs/.vitepress/dist"
 
-# Environment variables (optional)
+# Optional environment variables
 [vars]
 NODE_VERSION = "22.16.0"
 PNPM_VERSION = "10.18.3"
-
-# You can specify the build command Cloudflare should use
-[build]
-command = "pnpm --filter ./docs exec vitepress build docs"
-cwd = "."
